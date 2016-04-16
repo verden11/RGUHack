@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Root xmlns:wb="http://www.worldbank.org">
+﻿<?xml version="1.0" encoding="UTF-8"?>
   <data>
     <record>
       <field name="Country or Area" key="ABW">Aruba</field>
@@ -83330,4 +83329,3 @@
       <field name="Value" />
     </record>
   </data>
-</Root>

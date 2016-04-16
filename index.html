@@ -1,0 +1,63 @@
+<html>
+  <head><script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="CO2Emission.json"></script>
+    <script type ="text/javascript">
+    $(document).ready(function(e) {
+        console.log(x.data.record[0].field[0].content);
+     });
+        // window.onload = function (){
+        //   var myItems;
+        //   alert('blalbl');
+        //   // var f = new File([""],"CO2Emission.json");
+        //
+        //   var kk = $.getJSON(f);
+        //   console.log('kaczka');
+        //   console.log(f);
+        // };
+        // var kk = $.parseJSON(f);
+        // console.log(kk);
+        // $.parseJSON(f, function(data) {
+        //     alert("kakaka");
+        //     //myItems = data.name;
+        //     //alert(myItems[0]);
+        // });
+    // });
+
+  </script>
+    <!-- <script type="text/javascript">
+      google.charts.load('current', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      // function drawRegionsMap() {
+      //   var getJsonData = JSON.parse()            // else return v * 2.
+      //   });
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Popularity'],
+          ['Germany', 200],
+          ['United States', 200],
+          ['Brazil', 400],
+          ['Canada', 500],
+          ['Poland', 600],
+          ['Lithuania', 600],
+          ['Latvia', 600],
+          ['RU', 10]
+        ]);
+
+        var options = {
+               colorAxis: {colors: ['black','yellow','red']}
+               //legend: 'Vists'
+           };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+
+    </script> -->
+  </head>
+  <body>
+    <div id="regions_div" style="width: 1200px; height: 700px;"></div>
+  </body>
+</html>
