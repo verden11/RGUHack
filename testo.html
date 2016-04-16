@@ -1,0 +1,47 @@
+<html>
+  <head><script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="lifexp.json"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+
+           getCountriesAndValues();
+     });
+
+      var ka = function getCountriesAndValues(){
+        var dataArr = [];
+        dataArr[0] = ['Country', 'Popularity'];
+        $.each(x.data, function(index,value){
+          if(value.Year == 2000){
+          dataArr.push([value.Country, value.Value]);
+            console.log(value.Year);
+            console.log(value.Country);
+          }
+
+        })
+        return dataArr
+      }
+      google.charts.load('current', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable(new ka());
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type ="text/javascript">
+
+
+  </script>
+  </head>
+  <body>
+    <div id="regions_div" style="width: 1200px; height: 700px;"></div>
+  </body>
+</html>
