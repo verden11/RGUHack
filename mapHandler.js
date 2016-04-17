@@ -21,23 +21,45 @@ $(document).ready(function() {
 
 
     google.charts.load('current', { 'packages': ['geochart'] });
-   overlay(yearOnSlider);
+    overlay(yearOnSlider);
 
 
 
 
-    $("#ex8").on('slideStop', function(){
-    	var val = $(this).val();
-    	yearOnSlider = parseInt(val);
-    	overlay(yearOnSlider);
-    	console.log(val);
+    $("#ex8").on('slideStop', function() {
+        var val = $(this).val();
+        yearOnSlider = parseInt(val);
+        overlay(yearOnSlider);
+        // console.log(val);
+    });
+
+    $(".playButton").click(function() {
+    	var interval = null;
+        yearOnSlider = 1960;
+        overlay(yearOnSlider);
+
+        $("#ex8").slider('setAttribute', 'value', yearOnSlider);
+        $("#ex8").slider('refresh');
+
+        interval =  setInterval(function() {
+            yearOnSlider++;
+            overlay(yearOnSlider);
+            $("#ex8").slider('setAttribute', 'value', yearOnSlider);
+            $("#ex8").slider('refresh');
+            if (yearOnSlider > 2013){
+            	clearInterval(interval);
+            }
+        }, 1000);
+
+
+
     });
 
 });
 
 
-function overlay(yr){
-	 var ka = function getCountriesAndValues() {
+function overlay(yr) {
+    var ka = function getCountriesAndValues() {
         var dataArr = [];
         dataArr[0] = ['Country', 'Life Expectancy'];
         $.each(x.data, function(index, value) {
@@ -51,7 +73,7 @@ function overlay(yr){
         return dataArr
     }
 
-    
+
     google.charts.setOnLoadCallback(drawRegionsMap);
 
     function drawRegionsMap() {
