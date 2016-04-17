@@ -1,9 +1,16 @@
 $(document).ready(function() {
 	
-	//Adjust map to window's 90%
+	var windowWidth = $(window).width();
+	var windowHeight = $(window).height();
+	
 	var mapContainer = $("#regions_div");
-	mapContainer.width(($(window).width() * 0.9));
-	mapContainer.height(($(window).height() * 0.9));
+	
+	//Adjust map to window's 90%
+	mapContainer.width((windowWidth * 0.9));
+	mapContainer.height((windowHeight * 0.9));
+	
+	//Adjust filter container height
+	$("#filter-container").height(windowHeight);
 
 	var ka = function getCountriesAndValues() {
 		var dataArr = [];
