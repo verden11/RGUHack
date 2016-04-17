@@ -113,7 +113,7 @@
             if (yearOnSlider > 2013) {
                 clearInterval(interval);
             }
-        }, 1000);
+        }, 500);
 
 
 
@@ -125,11 +125,18 @@
         function drawRegionsMap() {
             var data = google.visualization.arrayToDataTable(arr);
 
-            var options = {};
+            var options = {
+                colorAxis: { colors: ['#e31b23', '#00853f'] },
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: '#f8bbd0',
+                defaultColor: '#f5f5f5',
+            };
 
             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
             chart.draw(data, options);
         }
     }
+
+
 });
