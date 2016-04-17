@@ -9,8 +9,9 @@ $(document).ready(function() {
 	mapContainer.width((windowWidth * 0.9));
 	mapContainer.height((windowHeight * 0.9));
 	
-	//Adjust filter container height
+	//Adjust filter container height and width
 	$("#filter-container").height(windowHeight);
+    $("#filter-container").width((windowWidth * 0.18));
 
 	var ka = function getCountriesAndValues() {
 		var dataArr = [];
