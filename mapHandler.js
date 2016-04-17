@@ -1,15 +1,21 @@
 ﻿$(document).ready(function() {
-	
-	var windowWidth = $(window).width();
-	var windowHeight = $(window).height();
-	
-	var mapContainer = $("#regions_div");
-	
-	//Adjust map to window's 90%
-	mapContainer.width((windowWidth * 0.9));
-	mapContainer.height((windowHeight * 0.9));
-	
-	//Adjust filter container height and width
+
+    var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+
+    var mapContainer = $("#regions_div");
+
+    // With JQuery
+    $("#ex8").slider({
+        tooltip: 'always'
+    });
+    var yearOnSlider = $("#ex8").slider('getValue');
+
+    //Adjust map to window's 90%
+    mapContainer.width((windowWidth * 0.9));
+    mapContainer.height((windowHeight * 0.9));
+
+    //Adjust filter container height and width
 	//$("#filter-container").height(windowHeight);
     $("#filter-container").width((windowWidth * 0.18));
 
