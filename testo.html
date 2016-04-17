@@ -1,60 +1,66 @@
 <html>
-  <head>
-	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="lifexp.json"></script>
-	<script type="text/javascript" src="mapHandler.js"></script>
-  </head>
-  
-  <body>
+    <script type="text/javascript" src="mapHandler.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.min.css">
+</head>
+
+<body>
     <div id="regions_div"></div>
-	<div id="filter-container">
-	    <div id="filters">
-	        <p><strong>Filters:</strong></p>
-	        <input type="radio" name="filter" value="v0"/> Improved sanitation facilities (% of population)
-	        <br/>
-	        <input type="radio" name="filter" value="v1"/> Access to electricity (% of population)
+    <div id="filter-container">
+        <div id="filters">
+        	<input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="1960" data-slider-max="2014" data-slider-step="1" data-slider-value="2010"/>
+            <p><strong>Filters:</strong></p>
+            <input type="radio" name="filter" value="v0" /> Improved sanitation facilities (% of population)
+            <br/>
+            <input type="radio" name="filter" value="v1" /> Access to electricity (% of population)
             <br />
-	        <input type="radio" name="filter" value="v2"/> Adult literacy rate, population 15+ years, both sexes (%)
+            <input type="radio" name="filter" value="v2" /> Adult literacy rate, population 15+ years, both sexes (%)
             <br />
-	        <input type="radio" name="filter" value="v3"/> PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)
+            <input type="radio" name="filter" value="v3" /> PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)
             <br />
-	        <input type="radio" name="filter" value="v4"/> Alternative and nuclear energy (% of total energy use)
+            <input type="radio" name="filter" value="v4" /> Alternative and nuclear energy (% of total energy use)
             <br />
-	        <input type="radio" name="filter" value="v5/> CO2 emissions (kg per 2005 US$ of GDP)
+            <input type="radio" name="filter" value="v5" /> CO2 emissions (kg per 2005 US$ of GDP)
             <br />
-	        <input type="radio" name="filter" value="v6"/> Forest area (sq.km)
+            <input type="radio" name="filter" value="v6" /> Forest area (sq.km)
             <br />
-	        <input type="radio" name="filter" value="v7"/> Fossil fuel energy consumption (% of total)
+            <input type="radio" name="filter" value="v7" /> Fossil fuel energy consumption (% of total)
             <br />
-	        <input type="radio" name="filter" value="v8"/> Gross savings (% of GDP)
+            <input type="radio" name="filter" value="v8" /> Gross savings (% of GDP)
             <br />
-	        <input type="radio" name="filter" value="v9/> Internet users (per 100 people)
+            <input type="radio" name="filter" value="v9" /> Internet users (per 100 people)
             <br />
-	        <input type="radio" name="filter" value="v10"/> Military expenditure (% of GDP)
+            <input type="radio" name="filter" value="v10" /> Military expenditure (% of GDP)
             <br />
-	        <input type="radio" name="filter" value="v11"/> Mortality rate, under-5 (per 1,000)
+            <input type="radio" name="filter" value="v11" /> Mortality rate, under-5 (per 1,000)
             <br />
-	        <input type="radio" name="filter" value="v12"/> Population, female (% of total)
+            <input type="radio" name="filter" value="v12" /> Population, female (% of total)
             <br />
-	        <input type="radio" name="filter" value="v13"/> Population growth (annual %)
+            <input type="radio" name="filter" value="v13" /> Population growth (annual %)
             <br />
-	        <input type="radio" name="filter" value="v14"/> Total Population
+            <input type="radio" name="filter" value="v14" /> Total Population
             <br />
-	        <input type="radio" name="filter" value="v15"/> Pump price for gasoline (US$ per liter)
+            <input type="radio" name="filter" value="v15" /> Pump price for gasoline (US$ per liter)
             <br />
-	        <input type="radio" name="filter" value="v16"/> Total tax rate (% of commercial profits)
+            <input type="radio" name="filter" value="v16" /> Total tax rate (% of commercial profits)
             <br />
-	        <input type="radio" name="filter" value="v17"/> Trade in services (% of GDP)
+            <input type="radio" name="filter" value="v17" /> Trade in services (% of GDP)
             <br />
-	        <input type="radio" name="filter" value="v18"/> Unemployment, total (% of total labor force)
+            <input type="radio" name="filter" value="v18" /> Unemployment, total (% of total labor force)
             <br />
-            <input type="radio" name="filter" value="v19"/> Urban population
-	    </div>
-	</div>
-  </body>
-  
+            <input type="radio" name="filter" value="v19" /> Urban population
+        </div>
+    </div>
+</body>
+
 </html>

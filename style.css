@@ -1,7 +1,7 @@
 #filter-container {
     position: absolute;
 	right: 0;
-	bottom: 0;
+	top: 0;
     background-color: rgba(188, 188, 188, 0.5);
 	border-left: 1px solid black;
 	width: 250px;
@@ -18,3 +18,4 @@
 #filters p {
     text-align: center;
 }
+
