@@ -16,7 +16,7 @@
     mapContainer.height((windowHeight * 0.9));
 
     //Adjust filter container height and width
-	//$("#filter-container").height(windowHeight);
+    //$("#filter-container").height(windowHeight);
     $("#filter-container").width((windowWidth * 0.18));
 
     //1.Improved sanitation facilities (% of population with access) ImprovedSanitationFacilities.json
@@ -69,18 +69,18 @@
 
     google.charts.load('current', { 'packages': ['geochart'] });
 
-    var year = 2000;
-
+    var year = yearOnSlider;
+    var str;
     $("input[name='filter']").on("click", function() {
-        var val = $(this).val(); //"v10"
-        var filterNumber = parseInt(val.substring(1), 10);
-        overlay(getCountriesAndValues(window[val], filterNumber));
+        str = $(this).val(); //"v10"
+        var filterNumber = parseInt(str.substring(1), 10);
+        overlay(getCountriesAndValues(window[str], filterNumber));
     });
 
     function getCountriesAndValues(a, b) {
         var dataArr = [];
         dataArr[0] = filterArr[b];
-        $.each(a.data, function (index, value) {
+        $.each(a.data, function(index, value) {
             if (value.Year == year) {
                 dataArr.push([value.Country, value.Value]);
             }
@@ -88,6 +88,36 @@
         });
         return dataArr;
     }
+
+
+    $("#ex8").on('slideStop', function() {
+        var val = $(this).val();
+        year = parseInt(val);
+        $("input[value='" + str + "']").trigger('click');
+    });
+
+
+    $(".playButton").click(function() {
+        var interval = null;
+        yearOnSlider = 1960;
+        $("input[value='" + str + "']").trigger('click');
+
+        $("#ex8").slider('setAttribute', 'value', yearOnSlider);
+        $("#ex8").slider('refresh');
+
+        interval = setInterval(function() {
+            yearOnSlider++;
+            $("input[value='" + str + "']").trigger('click');
+            $("#ex8").slider('setAttribute', 'value', yearOnSlider);
+            $("#ex8").slider('refresh');
+            if (yearOnSlider > 2013) {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+
+
+    });
 
     function overlay(arr) {
         google.charts.setOnLoadCallback(drawRegionsMap);
